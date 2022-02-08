@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:email_password_login/model/user_model.dart';
+import 'package:email_password_login/screens/profile/components/change_password.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -37,9 +38,12 @@ class _BodyState extends State<Body> {
           ProfilePic(),
           SizedBox(height: 20),
           ProfileMenu(
-            text: "Change profile",
+            text: "Change Password",
             icon: "assets/User.svg",
-            press: (){ImageUpload();},
+            press: (){Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => ChangePassword()));},
           ),
           ProfileMenu(
             text: "My Account",

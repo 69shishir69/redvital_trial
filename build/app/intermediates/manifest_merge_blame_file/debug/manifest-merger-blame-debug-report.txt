@@ -15,8 +15,8 @@
 14-->D:\Downloads\compressed\email_password_flutter_firebase-main\android\app\src\debug\AndroidManifest.xml:6:5-66
 14-->D:\Downloads\compressed\email_password_flutter_firebase-main\android\app\src\debug\AndroidManifest.xml:6:22-64
 15    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-15-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Acer\.gradle\caches\transforms-2\files-2.1\06e335a88f29e892ea89e02a9cd741a6\jetified-firebase-auth-21.0.1\AndroidManifest.xml:24:5-79
-15-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Acer\.gradle\caches\transforms-2\files-2.1\06e335a88f29e892ea89e02a9cd741a6\jetified-firebase-auth-21.0.1\AndroidManifest.xml:24:22-76
+15-->D:\Downloads\compressed\email_password_flutter_firebase-main\android\app\src\main\AndroidManifest.xml:3:5-79
+15-->D:\Downloads\compressed\email_password_flutter_firebase-main\android\app\src\main\AndroidManifest.xml:3:22-76
 16
 17    <uses-feature
 17-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Acer\.gradle\caches\transforms-2\files-2.1\1bfea3345dc912cd62ab812d09c38eaa\jetified-play-services-maps-17.0.0\AndroidManifest.xml:26:5-28:35
@@ -26,28 +26,28 @@
 19-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Acer\.gradle\caches\transforms-2\files-2.1\1bfea3345dc912cd62ab812d09c38eaa\jetified-play-services-maps-17.0.0\AndroidManifest.xml:28:9-32
 20
 21    <application
-21-->D:\Downloads\compressed\email_password_flutter_firebase-main\android\app\src\main\AndroidManifest.xml:3:4-40:19
+21-->D:\Downloads\compressed\email_password_flutter_firebase-main\android\app\src\main\AndroidManifest.xml:4:4-41:19
 22        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 22-->[androidx.core:core:1.6.0] C:\Users\Acer\.gradle\caches\transforms-2\files-2.1\4501684f105f116204225bd71498665d\core-1.6.0\AndroidManifest.xml:24:18-86
 23        android:debuggable="true"
 24        android:icon="@mipmap/ic_launcher"
-24-->D:\Downloads\compressed\email_password_flutter_firebase-main\android\app\src\main\AndroidManifest.xml:5:9-43
+24-->D:\Downloads\compressed\email_password_flutter_firebase-main\android\app\src\main\AndroidManifest.xml:6:9-43
 25        android:label="email_password_login" >
-25-->D:\Downloads\compressed\email_password_flutter_firebase-main\android\app\src\main\AndroidManifest.xml:4:9-45
+25-->D:\Downloads\compressed\email_password_flutter_firebase-main\android\app\src\main\AndroidManifest.xml:5:9-45
 26        <activity
-26-->D:\Downloads\compressed\email_password_flutter_firebase-main\android\app\src\main\AndroidManifest.xml:6:9-34:20
+26-->D:\Downloads\compressed\email_password_flutter_firebase-main\android\app\src\main\AndroidManifest.xml:7:9-35:20
 27            android:name="com.example.email_password_login.MainActivity"
-27-->D:\Downloads\compressed\email_password_flutter_firebase-main\android\app\src\main\AndroidManifest.xml:7:13-41
+27-->D:\Downloads\compressed\email_password_flutter_firebase-main\android\app\src\main\AndroidManifest.xml:8:13-41
 28            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
-28-->D:\Downloads\compressed\email_password_flutter_firebase-main\android\app\src\main\AndroidManifest.xml:10:13-163
+28-->D:\Downloads\compressed\email_password_flutter_firebase-main\android\app\src\main\AndroidManifest.xml:11:13-163
 29            android:hardwareAccelerated="true"
-29-->D:\Downloads\compressed\email_password_flutter_firebase-main\android\app\src\main\AndroidManifest.xml:11:13-47
+29-->D:\Downloads\compressed\email_password_flutter_firebase-main\android\app\src\main\AndroidManifest.xml:12:13-47
 30            android:launchMode="singleTop"
-30-->D:\Downloads\compressed\email_password_flutter_firebase-main\android\app\src\main\AndroidManifest.xml:8:13-43
+30-->D:\Downloads\compressed\email_password_flutter_firebase-main\android\app\src\main\AndroidManifest.xml:9:13-43
 31            android:theme="@style/LaunchTheme"
-31-->D:\Downloads\compressed\email_password_flutter_firebase-main\android\app\src\main\AndroidManifest.xml:9:13-47
+31-->D:\Downloads\compressed\email_password_flutter_firebase-main\android\app\src\main\AndroidManifest.xml:10:13-47
 32            android:windowSoftInputMode="adjustResize" >
-32-->D:\Downloads\compressed\email_password_flutter_firebase-main\android\app\src\main\AndroidManifest.xml:12:13-55
+32-->D:\Downloads\compressed\email_password_flutter_firebase-main\android\app\src\main\AndroidManifest.xml:13:13-55
 33
 34            <!--
 35                 Specifies an Android theme to apply to this Activity as soon as
@@ -56,11 +56,11 @@
 38                 to determine the Window background behind the Flutter UI.
 39            -->
 40            <meta-data
-40-->D:\Downloads\compressed\email_password_flutter_firebase-main\android\app\src\main\AndroidManifest.xml:17:13-20:17
+40-->D:\Downloads\compressed\email_password_flutter_firebase-main\android\app\src\main\AndroidManifest.xml:18:13-21:17
 41                android:name="io.flutter.embedding.android.NormalTheme"
-41-->D:\Downloads\compressed\email_password_flutter_firebase-main\android\app\src\main\AndroidManifest.xml:18:15-70
+41-->D:\Downloads\compressed\email_password_flutter_firebase-main\android\app\src\main\AndroidManifest.xml:19:15-70
 42                android:resource="@style/NormalTheme" />
-42-->D:\Downloads\compressed\email_password_flutter_firebase-main\android\app\src\main\AndroidManifest.xml:19:15-52
+42-->D:\Downloads\compressed\email_password_flutter_firebase-main\android\app\src\main\AndroidManifest.xml:20:15-52
 43            <!--
 44                 Displays an Android View that continues showing the launch screen
 45                 Drawable until Flutter paints its first frame, then this splash
@@ -69,21 +69,21 @@
 48                 Flutter's first frame.
 49            -->
 50            <meta-data
-50-->D:\Downloads\compressed\email_password_flutter_firebase-main\android\app\src\main\AndroidManifest.xml:26:13-29:17
+50-->D:\Downloads\compressed\email_password_flutter_firebase-main\android\app\src\main\AndroidManifest.xml:27:13-30:17
 51                android:name="io.flutter.embedding.android.SplashScreenDrawable"
-51-->D:\Downloads\compressed\email_password_flutter_firebase-main\android\app\src\main\AndroidManifest.xml:27:15-79
+51-->D:\Downloads\compressed\email_password_flutter_firebase-main\android\app\src\main\AndroidManifest.xml:28:15-79
 52                android:resource="@drawable/launch_background" />
-52-->D:\Downloads\compressed\email_password_flutter_firebase-main\android\app\src\main\AndroidManifest.xml:28:15-61
+52-->D:\Downloads\compressed\email_password_flutter_firebase-main\android\app\src\main\AndroidManifest.xml:29:15-61
 53
 54            <intent-filter>
-54-->D:\Downloads\compressed\email_password_flutter_firebase-main\android\app\src\main\AndroidManifest.xml:30:13-33:29
+54-->D:\Downloads\compressed\email_password_flutter_firebase-main\android\app\src\main\AndroidManifest.xml:31:13-34:29
 55                <action android:name="android.intent.action.MAIN" />
-55-->D:\Downloads\compressed\email_password_flutter_firebase-main\android\app\src\main\AndroidManifest.xml:31:17-68
-55-->D:\Downloads\compressed\email_password_flutter_firebase-main\android\app\src\main\AndroidManifest.xml:31:25-66
+55-->D:\Downloads\compressed\email_password_flutter_firebase-main\android\app\src\main\AndroidManifest.xml:32:17-68
+55-->D:\Downloads\compressed\email_password_flutter_firebase-main\android\app\src\main\AndroidManifest.xml:32:25-66
 56
 57                <category android:name="android.intent.category.LAUNCHER" />
-57-->D:\Downloads\compressed\email_password_flutter_firebase-main\android\app\src\main\AndroidManifest.xml:32:17-76
-57-->D:\Downloads\compressed\email_password_flutter_firebase-main\android\app\src\main\AndroidManifest.xml:32:27-74
+57-->D:\Downloads\compressed\email_password_flutter_firebase-main\android\app\src\main\AndroidManifest.xml:33:17-76
+57-->D:\Downloads\compressed\email_password_flutter_firebase-main\android\app\src\main\AndroidManifest.xml:33:27-74
 58            </intent-filter>
 59        </activity>
 60        <!--
@@ -91,11 +91,11 @@
 62             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
 63        -->
 64        <meta-data
-64-->D:\Downloads\compressed\email_password_flutter_firebase-main\android\app\src\main\AndroidManifest.xml:37:9-39:33
+64-->D:\Downloads\compressed\email_password_flutter_firebase-main\android\app\src\main\AndroidManifest.xml:38:9-40:33
 65            android:name="flutterEmbedding"
-65-->D:\Downloads\compressed\email_password_flutter_firebase-main\android\app\src\main\AndroidManifest.xml:38:13-44
+65-->D:\Downloads\compressed\email_password_flutter_firebase-main\android\app\src\main\AndroidManifest.xml:39:13-44
 66            android:value="2" />
-66-->D:\Downloads\compressed\email_password_flutter_firebase-main\android\app\src\main\AndroidManifest.xml:39:13-30
+66-->D:\Downloads\compressed\email_password_flutter_firebase-main\android\app\src\main\AndroidManifest.xml:40:13-30
 67
 68        <service
 68-->[:firebase_auth] D:\Downloads\compressed\email_password_flutter_firebase-main\build\firebase_auth\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-12:19

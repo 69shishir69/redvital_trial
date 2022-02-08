@@ -31,7 +31,7 @@ class _BottomPageState extends State<BottomPage> {
 
     Hospital(),
 
-    HomeScreen(),
+    ProfileScreen(),
 
   ];
 

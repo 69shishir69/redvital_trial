@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:image_picker/image_picker.dart';
 
+import 'image_retrive.dart';
 import 'image_upload.dart';
 
 class ProfilePic extends StatefulWidget {
@@ -51,6 +52,7 @@ class _ProfilePicState extends State<ProfilePic> {
     User? user = FirebaseAuth.instance.currentUser;
     UserModel loggedInUser = UserModel();
 
+
     @override
     void initState() {
       super.initState();
@@ -63,6 +65,23 @@ class _ProfilePicState extends State<ProfilePic> {
         setState(() {});
       });
     }
+
+    // UserModelRetrive loggedInUserRetrive = UserModelRetrive();
+    //
+    // void retriveImage(){
+    //   FirebaseFirestore.instance
+    //         .collection("users")
+    //         .doc(user!.uid)
+    //         .collection("images")
+    //         .doc()
+    //         .get()
+    //         .then((value) {
+    //         this.loggedInUserRetrive = UserModelRetrive.fromMap(value.data());
+    //         setState(() {
+    //
+    //         });
+    //   });
+    // }
     @override
     Widget build(BuildContext context) {
       return SizedBox(
@@ -73,12 +92,23 @@ class _ProfilePicState extends State<ProfilePic> {
           clipBehavior: Clip.none,
           children: [
             CircleAvatar(
-                  // child
-                  // : file == null
-                  // ? const Center(
-                  // child: Text('NoImg'))
-                  // : Image.file(file!),
-              backgroundImage: AssetImage("assets/profile.png"),
+              // if(loggedInUserRetrive)
+                  child
+                  : loggedInUser.downloadURL == null
+                  ? const Center(
+                  child: Text('NoImg'))
+                  : Container(
+                      width: 190.0,
+                      height: 190.0,
+                      decoration: new BoxDecoration(
+                          shape: BoxShape.circle,
+                          image: new DecorationImage(
+                              fit: BoxFit.fill,
+                              image: new NetworkImage(
+                                  loggedInUser.downloadURL!)
+                          )
+                      )),
+
             ),
             Positioned(
               right: -16,
@@ -96,7 +126,12 @@ class _ProfilePicState extends State<ProfilePic> {
                     backgroundColor: Color(0xFFF5F6F9),
                   ),
                   onPressed: () {
-                    ImageUpload(userId: loggedInUser.uid);
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ImageUpload(
+                              userId: loggedInUser.uid,
+                            )));
                   },
                   child: SvgPicture.asset("assets/Camera_Icon.svg"),
                 ),

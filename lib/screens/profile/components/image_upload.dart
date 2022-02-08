@@ -47,8 +47,7 @@ class _ImageUploadState extends State<ImageUpload> {
     await firebaseFirestore
         .collection("users")
         .doc(widget.userId)
-        .collection("images")
-        .add({'downloadURL': downloadURL}).whenComplete(
+        .update({'downloadURL': downloadURL}).whenComplete(
             () => showSnackBar("Image Uploaded", Duration(seconds: 2)));
   }
 
