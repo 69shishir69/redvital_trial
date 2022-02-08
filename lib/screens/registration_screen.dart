@@ -15,7 +15,7 @@ class RegistrationScreen extends StatefulWidget {
 
 class _RegistrationScreenState extends State<RegistrationScreen> {
   final _auth = FirebaseAuth.instance;
-  
+
   // string for displaying the error Message
   String? errorMessage;
 
@@ -173,7 +173,12 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           padding: EdgeInsets.fromLTRB(20, 15, 20, 15),
           minWidth: MediaQuery.of(context).size.width,
           onPressed: () {
-            signUp(emailEditingController.text, passwordEditingController.text);
+            if(_auth.currentUser?.email == emailEditingController.text){
+              signUp(emailEditingController.text, passwordEditingController.text);
+            } else{
+              Fluttertoast.showToast(msg: "Email does not exists");
+            }
+
           },
           child: Text(
             "SignUp",

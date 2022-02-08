@@ -3,6 +3,8 @@ class UserModel {
   String? email;
   String? firstName;
   String? secondName;
+  // String? phoneNo;
+  // String? bloodType;
   String? downloadURL;
 
   UserModel({this.uid, this.email, this.firstName, this.secondName, this.downloadURL});
@@ -14,8 +16,9 @@ class UserModel {
       email: map['email'],
       firstName: map['firstName'],
       secondName: map['secondName'],
-      downloadURL: map['downloadURL']
-
+      downloadURL: map['downloadURL'],
+      // phoneNo: map['phoneNo'],
+      // bloodType: map['bloodType'],
     );
   }
 
@@ -28,6 +31,8 @@ class UserModel {
       'email': email,
       'firstName': firstName,
       'secondName': secondName,
+      // 'phoneNo': phoneNo,
+      // 'bloodType': bloodType
     };
   }
 }

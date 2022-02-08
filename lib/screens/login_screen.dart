@@ -1,5 +1,6 @@
 import 'package:email_password_login/bottom_page.dart';
 import 'package:email_password_login/home_page.dart';
+import 'package:email_password_login/screens/forgot_password.dart';
 import 'package:email_password_login/screens/home_screen.dart';
 import 'package:email_password_login/screens/registration_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -102,6 +103,26 @@ class _LoginScreenState extends State<LoginScreen> {
                 fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold),
           )),
     );
+    final forgotPasswordButton = Material(
+      borderRadius: BorderRadius.circular(30),
+      color: Colors.white,
+      child: MaterialButton(
+          padding: EdgeInsets.fromLTRB(20, 15, 20, 15),
+          minWidth: MediaQuery.of(context).size.width,
+          onPressed: () {
+            Navigator.push(
+            context,
+            MaterialPageRoute(
+            builder: (context) => ForgotPassword())
+            );}
+          ,
+          child: Text(
+            "Forgot Password?",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+                fontSize: 13, color: Colors.redAccent, fontWeight: FontWeight.bold),
+          )),
+    );
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -150,7 +171,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                   fontSize: 15),
                             ),
                           )
-                        ])
+                        ]),
+                    SizedBox(height: 15),
+                    forgotPasswordButton,
                   ],
                 ),
               ),

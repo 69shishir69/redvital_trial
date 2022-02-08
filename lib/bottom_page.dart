@@ -27,7 +27,7 @@ class _BottomPageState extends State<BottomPage> {
 
     BloodBanks(),
 
-    ImageUpload(),
+    BloodRequest(),
 
     Hospital(),
 
