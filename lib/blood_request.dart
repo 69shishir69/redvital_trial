@@ -3,6 +3,7 @@ import 'package:email_password_login/model/user_model.dart';
 import 'package:email_password_login/screens/home_screen.dart';
 import 'package:email_password_login/screens/login_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
@@ -16,6 +17,8 @@ class BloodRequest extends StatefulWidget {
 class _BloodRequestState extends State<BloodRequest> {
   final _auth = FirebaseAuth.instance;
 
+
+
   // string for displaying the error Message
   String? errorMessage;
 
@@ -23,23 +26,24 @@ class _BloodRequestState extends State<BloodRequest> {
   // our form key
   final _formKey = GlobalKey<FormState>();
   // editing Controller
-  final firstNameEditingController = new TextEditingController();
-  final secondNameEditingController = new TextEditingController();
-  final emailEditingController = new TextEditingController();
-  final passwordEditingController = new TextEditingController();
-  final confirmPasswordEditingController = new TextEditingController();
+  final patientNameEditingController = new TextEditingController();
+  final contactNoEditingController = new TextEditingController();
+  final bloodTypeEditingController = new TextEditingController();
+  final neededByEditingController = new TextEditingController();
+  final medicalCenterEditingController = new TextEditingController();
+  final messageEditingController = new TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     //first name field
-    final firstNameField = TextFormField(
+    final patientNameField = TextFormField(
         autofocus: false,
-        controller: firstNameEditingController,
+        controller: patientNameEditingController,
         keyboardType: TextInputType.name,
         validator: (value) {
           RegExp regex = new RegExp(r'^.{3,}$');
           if (value!.isEmpty) {
-            return ("First Name cannot be Empty");
+            return ("Patient's name cannot be Empty");
           }
           if (!regex.hasMatch(value)) {
             return ("Enter Valid name(Min. 3 Character)");
@@ -47,125 +51,131 @@ class _BloodRequestState extends State<BloodRequest> {
           return null;
         },
         onSaved: (value) {
-          firstNameEditingController.text = value!;
+          patientNameEditingController.text = value!;
         },
         textInputAction: TextInputAction.next,
         decoration: InputDecoration(
           prefixIcon: Icon(Icons.account_circle),
           contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
-          hintText: "First Name",
+          hintText: "Patient Name",
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
           ),
         ));
 
-    //second name field
-    final secondNameField = TextFormField(
+    //Contact number field
+    final contactNoField = TextFormField(
         autofocus: false,
-        controller: secondNameEditingController,
+        controller: contactNoEditingController,
         keyboardType: TextInputType.name,
         validator: (value) {
           if (value!.isEmpty) {
-            return ("Second Name cannot be Empty");
+            return ("Contact number cannot be Empty");
           }
           return null;
         },
         onSaved: (value) {
-          secondNameEditingController.text = value!;
+          contactNoEditingController.text = value!;
         },
         textInputAction: TextInputAction.next,
         decoration: InputDecoration(
           prefixIcon: Icon(Icons.account_circle),
           contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
-          hintText: "Second Name",
+          hintText: "Contact Number",
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
           ),
         ));
 
-    //email field
-    final emailField = TextFormField(
+    //bloodType field
+    final bloodType = TextFormField(
         autofocus: false,
-        controller: emailEditingController,
-        keyboardType: TextInputType.emailAddress,
+        controller: bloodTypeEditingController,
+        keyboardType: TextInputType.text,
         validator: (value) {
           if (value!.isEmpty) {
-            return ("Please Enter Your Email");
-          }
-          // reg expression for email validation
-          if (!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
-              .hasMatch(value)) {
-            return ("Please Enter a valid email");
+            return ("Please Enter Needed BloodType");
           }
           return null;
         },
         onSaved: (value) {
-          firstNameEditingController.text = value!;
+          bloodTypeEditingController.text = value!;
         },
         textInputAction: TextInputAction.next,
         decoration: InputDecoration(
           prefixIcon: Icon(Icons.mail),
           contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
-          hintText: "Email",
+          hintText: "Needed BloodType",
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
           ),
         ));
 
-    //password field
-    final passwordField = TextFormField(
+    //neededBy field
+    final neededBy = TextFormField(
         autofocus: false,
-        controller: passwordEditingController,
-        obscureText: true,
+        controller: neededByEditingController,
+        keyboardType: TextInputType.text,
         validator: (value) {
-          RegExp regex = new RegExp(r'^.{6,}$');
           if (value!.isEmpty) {
-            return ("Password is required for login");
-          }
-          if (!regex.hasMatch(value)) {
-            return ("Enter Valid Password(Min. 6 Character)");
-          }
-        },
-        onSaved: (value) {
-          firstNameEditingController.text = value!;
-        },
-        textInputAction: TextInputAction.next,
-        decoration: InputDecoration(
-          prefixIcon: Icon(Icons.vpn_key),
-          contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
-          hintText: "Password",
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
-          ),
-        ));
-
-    //confirm password field
-    final confirmPasswordField = TextFormField(
-        autofocus: false,
-        controller: confirmPasswordEditingController,
-        obscureText: true,
-        validator: (value) {
-          if (confirmPasswordEditingController.text !=
-              passwordEditingController.text) {
-            return "Password don't match";
+            return ("Please Enter A Date");
           }
           return null;
         },
         onSaved: (value) {
-          confirmPasswordEditingController.text = value!;
+          neededByEditingController.text = value!;
         },
-        textInputAction: TextInputAction.done,
+        textInputAction: TextInputAction.next,
         decoration: InputDecoration(
-          prefixIcon: Icon(Icons.vpn_key),
+          prefixIcon: Icon(Icons.mail),
           contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
-          hintText: "Confirm Password",
+          hintText: "Needed BloodType Required Time",
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
           ),
         ));
 
+    //medicalCenter field
+    final medicalCenter = TextFormField(
+        autofocus: false,
+        controller: medicalCenterEditingController,
+        keyboardType: TextInputType.text,
+        validator: (value) {
+          if (value!.isEmpty) {
+            return ("Please Enter The Location Of The Medical Center");
+          }
+          return null;
+        },
+        onSaved: (value) {
+          medicalCenterEditingController.text = value!;
+        },
+        textInputAction: TextInputAction.next,
+        decoration: InputDecoration(
+          prefixIcon: Icon(Icons.mail),
+          contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
+          hintText: "Medical Center's Location",
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
+        ));
+
+
+    // //medicalCenter field
+    // final medicalCenter = CupertinoTextField(
+    //     autofocus: false,
+    //     controller: medicalCenterEditingController,
+    //     keyboardType: TextInputType.text,
+    //     onSubmitted: (value) {
+    //       medicalCenterEditingController.text = value!;
+    //     },
+    //     textInputAction: TextInputAction.next,
+    //     maxLines: 3,
+    //     placeholder: "Enter a message (Optional)..."
+    // );
+
+
     //signup button
-    final signUpButton = Material(
+    final requestButton = Material(
       elevation: 5,
       borderRadius: BorderRadius.circular(30),
       color: Colors.redAccent,

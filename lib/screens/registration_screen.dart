@@ -25,6 +25,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   // editing Controller
   final firstNameEditingController = new TextEditingController();
   final secondNameEditingController = new TextEditingController();
+  final phoneNoEditingController = new TextEditingController();
+  final bloodTypeEditingController = new TextEditingController();
   final emailEditingController = new TextEditingController();
   final passwordEditingController = new TextEditingController();
   final confirmPasswordEditingController = new TextEditingController();
@@ -78,6 +80,53 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           prefixIcon: Icon(Icons.account_circle),
           contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
           hintText: "Second Name",
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
+        ));
+
+    // phone number
+    final phoneNoField = TextFormField(
+        autofocus: false,
+        controller: phoneNoEditingController,
+        keyboardType: TextInputType.name,
+        validator: (value) {
+          if (value!.isEmpty) {
+            return ("Phone no cannot be empty");
+          }
+          return null;
+        },
+        onSaved: (value) {
+          phoneNoEditingController.text = value!;
+        },
+        textInputAction: TextInputAction.next,
+        decoration: InputDecoration(
+          prefixIcon: Icon(Icons.account_circle),
+          contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
+          hintText: "Phone Number",
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
+        ));
+
+    final bloodTypeField = TextFormField(
+        autofocus: false,
+        controller: bloodTypeEditingController,
+        keyboardType: TextInputType.name,
+        validator: (value) {
+          if (value!.isEmpty) {
+            return ("Blood type cannot be empty");
+          }
+          return null;
+        },
+        onSaved: (value) {
+          bloodTypeEditingController.text = value!;
+        },
+        textInputAction: TextInputAction.next,
+        decoration: InputDecoration(
+          prefixIcon: Icon(Icons.account_circle),
+          contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
+          hintText: "Blood Type",
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
           ),
@@ -173,11 +222,11 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           padding: EdgeInsets.fromLTRB(20, 15, 20, 15),
           minWidth: MediaQuery.of(context).size.width,
           onPressed: () {
-            if(_auth.currentUser?.email == emailEditingController.text){
+            // if(_auth.currentUser?.email == emailEditingController.text){
               signUp(emailEditingController.text, passwordEditingController.text);
-            } else{
-              Fluttertoast.showToast(msg: "Email does not exists");
-            }
+            // } else{
+            //   Fluttertoast.showToast(msg: "Email does not exists");
+            // }
 
           },
           child: Text(
@@ -223,6 +272,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     firstNameField,
                     SizedBox(height: 20),
                     secondNameField,
+                    SizedBox(height: 20),
+                    phoneNoField,
+                    SizedBox(height: 20),
+                    bloodTypeField,
                     SizedBox(height: 20),
                     emailField,
                     SizedBox(height: 20),
@@ -294,6 +347,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     userModel.uid = user.uid;
     userModel.firstName = firstNameEditingController.text;
     userModel.secondName = secondNameEditingController.text;
+    userModel.phoneNo = phoneNoEditingController.text;
+    userModel.bloodType = bloodTypeEditingController.text;
 
     await firebaseFirestore
         .collection("users")
@@ -304,6 +359,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     Navigator.pushAndRemoveUntil(
         (context),
         MaterialPageRoute(builder: (context) => LoginScreen()),
-        (route) => false);
+            (route) => false);
   }
 }

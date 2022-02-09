@@ -68,17 +68,20 @@ class _ForgotPasswordState extends State<ForgotPassword> {
               .size
               .width,
           onPressed: () {
-            if( _auth.currentUser?.email == emailEditingController.text ){
+            // if( _auth.currentUser?.email == emailEditingController.text ){
+
               _auth.sendPasswordResetEmail(email: emailEditingController.text).whenComplete(() =>
                   showSnackBar("check you mail for password",
                   Duration(milliseconds: 400)))
                   .then((value) => Navigator.of(context).pop()); 
 
-            } else{
-            // on Exception catch (_) {
-              showSnackBar("The above email does not match with any user",
-                  Duration(milliseconds: 400));
-            }
+            // } else{
+            //   print(_auth.currentUser?.email);
+            //   print(emailEditingController.text);
+            // // on Exception catch (_) {
+            //   showSnackBar("The above email does not match with any user",
+            //       Duration(milliseconds: 400));
+            // }
           },
           child: Text(
             "Reset email",

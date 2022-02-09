@@ -48,7 +48,8 @@ class _ImageUploadState extends State<ImageUpload> {
         .collection("users")
         .doc(widget.userId)
         .update({'downloadURL': downloadURL}).whenComplete(
-            () => showSnackBar("Image Uploaded", Duration(seconds: 2)));
+            () => showSnackBar("Image Uploaded", Duration(seconds: 2)))
+        .then((value) => Navigator.of(context).pop());
   }
 
   @override
