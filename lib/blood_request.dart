@@ -1,8 +1,11 @@
+import 'dart:collection';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:email_password_login/model/user_model.dart';
 import 'package:email_password_login/screens/home_screen.dart';
 import 'package:email_password_login/screens/login_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -16,7 +19,7 @@ class BloodRequest extends StatefulWidget {
 
 class _BloodRequestState extends State<BloodRequest> {
   final _auth = FirebaseAuth.instance;
-
+  // final firebaseDatabase = FirebaseDatabase.instance.ref();
 
 
   // string for displaying the error Message
@@ -35,6 +38,7 @@ class _BloodRequestState extends State<BloodRequest> {
 
   @override
   Widget build(BuildContext context) {
+
     //first name field
     final patientNameField = TextFormField(
         autofocus: false,
@@ -88,7 +92,7 @@ class _BloodRequestState extends State<BloodRequest> {
         ));
 
     //bloodType field
-    final bloodType = TextFormField(
+    final bloodTypeField = TextFormField(
         autofocus: false,
         controller: bloodTypeEditingController,
         keyboardType: TextInputType.text,
@@ -112,7 +116,7 @@ class _BloodRequestState extends State<BloodRequest> {
         ));
 
     //neededBy field
-    final neededBy = TextFormField(
+    final neededByField = TextFormField(
         autofocus: false,
         controller: neededByEditingController,
         keyboardType: TextInputType.text,
@@ -136,7 +140,7 @@ class _BloodRequestState extends State<BloodRequest> {
         ));
 
     //medicalCenter field
-    final medicalCenter = TextFormField(
+    final medicalCenterField = TextFormField(
         autofocus: false,
         controller: medicalCenterEditingController,
         keyboardType: TextInputType.text,
@@ -175,7 +179,7 @@ class _BloodRequestState extends State<BloodRequest> {
 
 
     //signup button
-    final requestButton = Material(
+    final requestButtonField = Material(
       elevation: 5,
       borderRadius: BorderRadius.circular(30),
       color: Colors.redAccent,
@@ -183,18 +187,13 @@ class _BloodRequestState extends State<BloodRequest> {
           padding: EdgeInsets.fromLTRB(20, 15, 20, 15),
           minWidth: MediaQuery.of(context).size.width,
           onPressed: () {
-            if(_auth.currentUser?.email == emailEditingController.text){
-              signUp(emailEditingController.text, passwordEditingController.text);
-            } else{
-              Fluttertoast.showToast(msg: "Account created successfully :) ");
-            }
-
+            requestButton();
           },
           child: Text(
-            "SignUp",
+            "Request",
             textAlign: TextAlign.center,
             style: TextStyle(
-                fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold),
+                fontSize: 15, color: Colors.white, fontWeight: FontWeight.bold),
           )),
     );
 
@@ -223,24 +222,18 @@ class _BloodRequestState extends State<BloodRequest> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
-                    SizedBox(
-                        height: 180,
-                        child: Image.asset(
-                          "assets/logo.png",
-                          fit: BoxFit.contain,
-                        )),
                     SizedBox(height: 45),
-                    firstNameField,
+                    patientNameField,
                     SizedBox(height: 20),
-                    secondNameField,
+                    contactNoField,
                     SizedBox(height: 20),
-                    emailField,
+                    bloodTypeField,
                     SizedBox(height: 20),
-                    passwordField,
+                    neededByField,
                     SizedBox(height: 20),
-                    confirmPasswordField,
+                    medicalCenterField,
                     SizedBox(height: 20),
-                    signUpButton,
+                    requestButtonField,
                     SizedBox(height: 15),
                   ],
                 ),
@@ -251,69 +244,56 @@ class _BloodRequestState extends State<BloodRequest> {
       ),
     );
   }
-  void signUp(String email, String password) async {
+  Future<void> requestButton() async {
     if (_formKey.currentState!.validate()) {
+      // FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
+      User? user = _auth.currentUser;
+      // final user_uid = user!.uid;
+      // final firebaseUser = firebaseDatabase.child("Users");
+      FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
+
+      RequestBloodModel requestBloodModel = RequestBloodModel();
+
+      // writing all the values
+      requestBloodModel.requesterId = user?.uid;
+      requestBloodModel.patientName = patientNameEditingController.text;
+      requestBloodModel.contactNo = contactNoEditingController.text;
+      requestBloodModel.bloodType = bloodTypeEditingController.text;
+      requestBloodModel.neededBy = neededByEditingController.text;
+      requestBloodModel.medicalCenter = medicalCenterEditingController.text;
+
       try {
-        await _auth
-            .createUserWithEmailAndPassword(email: email, password: password)
-            .then((value) => {postDetailsToFirestore()})
-            .catchError((e) {
-          Fluttertoast.showToast(msg: e!.message);
-        });
-      } on FirebaseAuthException catch (error) {
-        switch (error.code) {
-          case "invalid-email":
-            errorMessage = "Your email address appears to be malformed.";
-            break;
-          case "wrong-password":
-            errorMessage = "Your password is wrong.";
-            break;
-          case "user-not-found":
-            errorMessage = "User with this email doesn't exist.";
-            break;
-          case "user-disabled":
-            errorMessage = "User with this email has been disabled.";
-            break;
-          case "too-many-requests":
-            errorMessage = "Too many requests";
-            break;
-          case "operation-not-allowed":
-            errorMessage = "Signing in with Email and Password is not enabled.";
-            break;
-          default:
-            errorMessage = "An undefined Error happened.";
-        }
-        Fluttertoast.showToast(msg: errorMessage!);
-        print(error.code);
+        await firebaseFirestore
+            .collection("requesters")
+            .doc(user?.uid)
+            .set(requestBloodModel.toMap());
+        Fluttertoast.showToast(msg: "Request Sent to all donors");
+
+         // firebaseUser
+         //    .set({
+         //      'name': 'Phisher',
+         //      'address': 'barbarian'
+         //    })
+         //    .then((_) => Fluttertoast.showToast(msg: "Requested Successfully"));
+      } catch(e){
+        print("you got an error $e");
+      }
+
+      // final FirebaseDatabase database = FirebaseDatabase.instance;
+      // DatabaseReference ref = database.ref("server/saving-data/fireblog");
+      //
+      // DatabaseReference usersRef = ref.child("users").child("requester");
+      // usersRef.
+      // await firebaseFirestore
+      //     .collection("users")
+      //     .doc(user.uid)
+      //     .set(userModel.toMap());
+      // Fluttertoast.showToast(msg: "Requested Successfully!!");
+
+      // Navigator.pushAndRemoveUntil(
+      //     (context),
+      //     MaterialPageRoute(builder: (context) => LoginScreen()),
+      //         (route) => false);
       }
     }
   }
-  postDetailsToFirestore() async {
-    // calling our firestore
-    // calling our user model
-    // sedning these values
-
-    FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
-    User? user = _auth.currentUser;
-
-    UserModel userModel = UserModel();
-
-    // writing all the values
-    userModel.email = user!.email;
-
-    userModel.uid = user.uid;
-    userModel.firstName = firstNameEditingController.text;
-    userModel.secondName = secondNameEditingController.text;
-
-    await firebaseFirestore
-        .collection("users")
-        .doc(user.uid)
-        .set(userModel.toMap());
-    Fluttertoast.showToast(msg: "Account created successfully :) ");
-
-    Navigator.pushAndRemoveUntil(
-        (context),
-        MaterialPageRoute(builder: (context) => LoginScreen()),
-            (route) => false);
-  }
-}

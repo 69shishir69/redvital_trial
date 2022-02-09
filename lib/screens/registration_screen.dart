@@ -297,11 +297,16 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   void signUp(String email, String password) async {
     if (_formKey.currentState!.validate()) {
       try {
-        await _auth
+        print("hyaaaa");
+         _auth
             .createUserWithEmailAndPassword(email: email, password: password)
             .then((value) => {postDetailsToFirestore()})
             .catchError((e) {
+
+           print("hysasdaw");
           Fluttertoast.showToast(msg: e!.message);
+
+           print("hysasdaw");
         });
       } on FirebaseAuthException catch (error) {
         switch (error.code) {

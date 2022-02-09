@@ -1,20 +1,20 @@
 {
   "project_info": {
-    "project_number": "143322359680",
-    "project_id": "login-3fc9e",
-    "storage_bucket": "login-3fc9e.appspot.com"
+    "project_number": "717473933971",
+    "project_id": "final-redvital",
+    "storage_bucket": "final-redvital.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:143322359680:android:c9c9e26b83df44f2b88365",
+        "mobilesdk_app_id": "1:717473933971:android:50094bdcde8d5345857b66",
         "android_client_info": {
           "package_name": "com.example.email_password_login"
         }
       },
       "oauth_client": [
         {
-          "client_id": "143322359680-on4oh3qiv3rit5mfpu1r43nqsfhrf7v6.apps.googleusercontent.com",
+          "client_id": "717473933971-tn4na9idiuo4hvci0ga5cg1ivof7hkdb.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.email_password_login",
@@ -22,20 +22,20 @@
           }
         },
         {
-          "client_id": "143322359680-80rpeomil2tvenfuobbefh8tsqea9q3f.apps.googleusercontent.com",
+          "client_id": "717473933971-tpfjt3vmpu76ri6rdrnc4n9t2v4u03j6.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAV5zQ5hr0fNzqk9hoawucrVe7moMDqsBE"
+          "current_key": "AIzaSyD3ypidsBo91yDb4gbyMnnsbb10k2yssxQ"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "143322359680-80rpeomil2tvenfuobbefh8tsqea9q3f.apps.googleusercontent.com",
+              "client_id": "717473933971-tpfjt3vmpu76ri6rdrnc4n9t2v4u03j6.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

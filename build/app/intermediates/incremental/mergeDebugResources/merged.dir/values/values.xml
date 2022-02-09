@@ -115,13 +115,13 @@
     <string name="common_open_on_phone">Open on phone</string>
     <string name="common_signin_button_text">Sign in</string>
     <string name="common_signin_button_text_long">Sign in with Google</string>
-    <string name="default_web_client_id" translatable="false">143322359680-80rpeomil2tvenfuobbefh8tsqea9q3f.apps.googleusercontent.com</string>
-    <string name="gcm_defaultSenderId" translatable="false">143322359680</string>
-    <string name="google_api_key" translatable="false">AIzaSyAV5zQ5hr0fNzqk9hoawucrVe7moMDqsBE</string>
-    <string name="google_app_id" translatable="false">1:143322359680:android:c9c9e26b83df44f2b88365</string>
-    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyAV5zQ5hr0fNzqk9hoawucrVe7moMDqsBE</string>
-    <string name="google_storage_bucket" translatable="false">login-3fc9e.appspot.com</string>
-    <string name="project_id" translatable="false">login-3fc9e</string>
+    <string name="default_web_client_id" translatable="false">717473933971-tpfjt3vmpu76ri6rdrnc4n9t2v4u03j6.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">717473933971</string>
+    <string name="google_api_key" translatable="false">AIzaSyD3ypidsBo91yDb4gbyMnnsbb10k2yssxQ</string>
+    <string name="google_app_id" translatable="false">1:717473933971:android:50094bdcde8d5345857b66</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyD3ypidsBo91yDb4gbyMnnsbb10k2yssxQ</string>
+    <string name="google_storage_bucket" translatable="false">final-redvital.appspot.com</string>
+    <string name="project_id" translatable="false">final-redvital</string>
     <string name="status_bar_notification_info_overflow">999+</string>
     <style name="LaunchTheme" parent="@android:style/Theme.Light.NoTitleBar">
         <!-- Show a splash screen on the activity. Automatically removed when

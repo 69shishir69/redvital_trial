@@ -37,26 +37,46 @@ class UserModel {
   }
 }
 
-// class UserModelRetrive {
-//   String? downloadURL;
-//
-//   UserModelRetrive({this.downloadURL});
-//
-//   // receiving data from server
-//   factory UserModelRetrive.fromMap(map) {
-//     return UserModelRetrive(
-//         downloadURL: map['downloadURL']
-//
-//     );
-//   }
-//
-//
-//
-//   // sending data to our server
-//   Map<String, dynamic> toMap() {
-//     return {
-//       'downloadURL': downloadURL
-//     };
-//   }
-// }
+
+class RequestBloodModel {
+  String? requesterId;
+  String? patientName;
+  String? contactNo;
+  String? bloodType;
+  String? neededBy;
+  String? medicalCenter;
+  // String? message;
+
+  RequestBloodModel({this.requesterId, this.patientName, this.contactNo, this.bloodType, this.neededBy, this.medicalCenter});
+
+  // receiving data from server
+  factory RequestBloodModel.fromMap(map) {
+    return RequestBloodModel(
+      requesterId: map['requesterId'],
+      patientName: map['patientName'],
+      contactNo: map['contactNo'],
+      bloodType: map['bloodType'],
+      neededBy: map['neededBy'],
+      medicalCenter: map['medicalCenter'],
+      // message: map['message'],
+    );
+  }
+
+
+
+  // sending data to our server
+  Map<String, dynamic> toMap() {
+    return {
+      'requesterId': requesterId,
+      'patientName': patientName,
+      'contactNo': contactNo,
+      'bloodType': bloodType,
+      'neededBy': neededBy,
+      'medicalCenter': medicalCenter,
+      // 'message': message
+    };
+  }
+}
+
+
 
