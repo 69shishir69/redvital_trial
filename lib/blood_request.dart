@@ -244,6 +244,29 @@ class _BloodRequestState extends State<BloodRequest> {
       ),
     );
   }
+
+
+  CollectionReference _collectionRef =
+  FirebaseFirestore.instance.collection('requesters');
+
+  Future<void> getData() async {
+    // Get docs from collection reference
+    QuerySnapshot querySnapshot = await _collectionRef.get();
+
+    // Get data from docs and convert map to List
+    final allData = querySnapshot.docs.map((doc) => doc.data()).toList();
+    for(var item in allData){
+      final retrieve = RequestBloodModel.fromMap(item);
+      // print(singledata);
+      print(retrieve.medicalCenter);
+      print("ok");
+    }
+    // final singledata = allData[0];
+    // final retrieve = RequestBloodModel.fromMap(singledata);
+    // print(singledata);
+    // print(retrieve.medicalCenter);
+    // print("ok");
+  }
   Future<void> requestButton() async {
     if (_formKey.currentState!.validate()) {
       // FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
@@ -253,19 +276,23 @@ class _BloodRequestState extends State<BloodRequest> {
       FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
 
       RequestBloodModel requestBloodModel = RequestBloodModel();
+      final userId = DateTime.now().millisecondsSinceEpoch.toString();
 
       // writing all the values
-      requestBloodModel.requesterId = user?.uid;
+      requestBloodModel.requestId = userId;
+      requestBloodModel.requesterUid = user?.uid;
       requestBloodModel.patientName = patientNameEditingController.text;
       requestBloodModel.contactNo = contactNoEditingController.text;
       requestBloodModel.bloodType = bloodTypeEditingController.text;
       requestBloodModel.neededBy = neededByEditingController.text;
       requestBloodModel.medicalCenter = medicalCenterEditingController.text;
+      requestBloodModel.accept = "False";
+
 
       try {
         await firebaseFirestore
             .collection("requesters")
-            .doc(user?.uid)
+            .doc(userId)
             .set(requestBloodModel.toMap());
         Fluttertoast.showToast(msg: "Request Sent to all donors");
 
@@ -295,5 +322,6 @@ class _BloodRequestState extends State<BloodRequest> {
       //     MaterialPageRoute(builder: (context) => LoginScreen()),
       //         (route) => false);
       }
+      getData();
     }
   }
