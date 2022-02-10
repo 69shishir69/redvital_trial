@@ -44,7 +44,7 @@ class _RequestContainerState extends State<RequestContainer> {
   Widget build(BuildContext context) {
     // var acceptData;
     // var newAcceptData;
-    Map<String, dynamic>? newAcceptData;
+    // Map<String, dynamic>? newAcceptData;
     final acceptButton = Material(
       elevation: 5,
       borderRadius: BorderRadius.circular(20),
@@ -89,11 +89,13 @@ class _RequestContainerState extends State<RequestContainer> {
               // requestBloodModel.bloodType = requestBloodModel.bloodType;
               // requestBloodModel.patientName = requestBloodModel.patientName;
               // requestBloodModel.medicalCenter = requestBloodModel.medicalCenter;
-
+              var donorUID = user?.uid;
+              var donorNAME =  (loggedInUser.firstName!) + (loggedInUser.secondName)!;
+              var donorCONTACT = loggedInUser.phoneNo;
               await firebaseFirestore
                   .collection("requesters")
                   .doc(widget.snap['requestId'])
-                  .update({"accept": "True"});
+                  .update({"accept": "True", "donorUid" : "$donorUID", "donorName" : "$donorNAME" , "donorContact" : "$donorCONTACT" });
             } else{
               Fluttertoast.showToast(msg: "Request already accepted");
             }
@@ -106,6 +108,7 @@ class _RequestContainerState extends State<RequestContainer> {
     ),
     );
 
+    if(widget.snap['accept'] == "False" && widget.snap['requesterUid'] != user?.uid){
     return Container(
       width: 200,
       height: 200,
@@ -159,7 +162,6 @@ class _RequestContainerState extends State<RequestContainer> {
                         ),
                       ),
 
-
                       Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -202,6 +204,9 @@ class _RequestContainerState extends State<RequestContainer> {
             ),
           ],
         )
-    );
+    );} else{
+      return Container(
+      );
+    }
   }
 }

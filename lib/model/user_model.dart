@@ -47,9 +47,14 @@ class RequestBloodModel {
   String? medicalCenter;
   String? requestId;
   String? accept;
+  String? donorUid;
+  String? donorName;
+  String? donorContact;
   // String? message;
 
-  RequestBloodModel({this.requesterUid, this.patientName, this.contactNo, this.bloodType, this.neededBy, this.medicalCenter, this.requestId, this.accept});
+  RequestBloodModel({this.requesterUid, this.patientName, this.contactNo,
+                    this.bloodType, this.neededBy, this.medicalCenter,
+                    this.requestId, this.accept, this.donorUid, this.donorName, this.donorContact});
 
   // receiving data from server
   factory RequestBloodModel.fromMap(map) {
@@ -62,6 +67,9 @@ class RequestBloodModel {
       medicalCenter: map['medicalCenter'],
       requestId: map['requestId'],
       accept: map['accept'],
+      donorUid: map['donorUid'],
+      donorName: map['donorName'],
+      donorContact: map['donorContact'],
       // message: map['message'],
     );
   }
@@ -79,6 +87,9 @@ class RequestBloodModel {
       'medicalCenter': medicalCenter,
       'requestId':requestId,
       'accept': accept,
+      'donorUid': donorUid,
+      'donorName': donorName,
+      'donorContact': donorContact,
       // 'message': message
     };
   }

@@ -287,6 +287,9 @@ class _BloodRequestState extends State<BloodRequest> {
       requestBloodModel.neededBy = neededByEditingController.text;
       requestBloodModel.medicalCenter = medicalCenterEditingController.text;
       requestBloodModel.accept = "False";
+      requestBloodModel.donorUid = "None";
+      requestBloodModel.donorName = "None";
+      requestBloodModel.donorContact = "None";
 
 
       try {
