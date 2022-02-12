@@ -110,10 +110,14 @@ class _AcceptedBloodRequestState extends State<AcceptedBloodRequest> {
     // widget.snap['neededBy']
     // );
 
+    var requestedDate =  widget.snap['requestedDate'];
+    var newRequestedDate = requestedDate.split(" ");
+    var acceptedDate = widget.snap['acceptedDate'];
+    var newAcceptedDate = acceptedDate.split(" ");
     if(widget.snap['accept'] == "True" &&  widget.snap['donorUid'] == user?.uid ){
       return Container(
           width: 200,
-          height: 150,
+          height: 170,
           margin: EdgeInsets.fromLTRB(25, 15, 25, 15),
           padding: EdgeInsets.fromLTRB(15, 8, 15, 10),
           alignment: Alignment.center,
@@ -157,7 +161,23 @@ class _AcceptedBloodRequestState extends State<AcceptedBloodRequest> {
                               color: Colors.black87),
                         ),
                         Text(
-                          "Needed Time:   " + widget.snap['neededBy'],
+                          "Needed By:   " + widget.snap['neededBy'],
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.black87,
+                          ),
+                        ),
+                        Text(
+                          "Accepted Date:   ${newAcceptedDate[0]}" ,
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.black87,
+                          ),
+                        ),
+                        Text(
+                          "Requested Date:   ${newRequestedDate[0]}" ,
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w600,

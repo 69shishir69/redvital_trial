@@ -1,11 +1,14 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:email_password_login/model/user_model.dart';
+import 'package:email_password_login/screens/home_screen.dart';
 import 'package:email_password_login/screens/login_screen.dart';
 import 'package:email_password_login/screens/profile/components/change_password.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
+import '../../divider.dart';
 import 'image_upload.dart';
+import 'myAccount.dart';
 import 'profile_menu.dart';
 import 'profile_pic.dart';
 
@@ -37,46 +40,73 @@ class _BodyState extends State<Body> {
   }
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      padding: EdgeInsets.symmetric(vertical: 20),
-      child: Column(
-        children: [
-          ProfilePic(),
-          SizedBox(height: 20),
-          ProfileMenu(
-            text: "Change Password",
-            icon: "assets/User.svg",
-            press: (){Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => ChangePassword()));},
-          ),
-          ProfileMenu(
-            text: "My Account",
-            icon: "assets/User.svg",
-            press: (){},
-          ),
-          ProfileMenu(
-            text: "Notifications",
-            icon: "assets/Bell.svg",
-            press: () {},
-          ),
-          ProfileMenu(
-            text: "Settings",
-            icon: "assets/Settings.svg",
-            press: () {},
-          ),
-          ProfileMenu(
-            text: "Help Center",
-            icon: "assets/Question_mark.svg",
-            press: () {},
-          ),
-          ProfileMenu(
-            text: "Log Out",
-            icon: "assets/Log_out.svg",
-            press: () {logout(context);},
-          ),
-        ],
+    return Theme(
+      data: BasicTheme.theme(context),
+      child: SingleChildScrollView(
+        padding: EdgeInsets.symmetric(vertical: 20),
+        child: Column(
+          children: [
+            SizedBox(height: 40),
+            ProfilePic(),
+            SizedBox(height: 10),
+            Padding(
+              padding: EdgeInsets.all(5),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Text("${loggedInUser.firstName} ${loggedInUser.secondName}",
+                      style: TextStyle(
+                        color: Color.fromRGBO(25, 25, 25, 0.8),
+                        fontWeight: FontWeight.w600,
+                        fontSize: 18,
+                      )),
+                  SizedBox(
+                    height: 7,
+                  ),
+                  Text("${loggedInUser.email}",
+                      style: TextStyle(
+                        color: Colors.black87,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 15,
+                      )),
+                ],
+              ),
+
+            ),
+            SizedBox(height: 5),
+            ProfileMenu(
+              text: "My Account",
+              icon: "assets/User.svg",
+              press: (){Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => MyAccount()));},
+            ),
+            Divider(),
+            ProfileMenu(
+              text: "Change Password",
+              icon: "assets/Settings.svg",
+              press: (){Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => ChangePassword()));},
+            ),
+            Divider(),
+            ProfileMenu(
+              text: "About Us",
+              icon: "assets/Settings.svg",
+              press: () {},
+            ),
+            Divider(),
+            ProfileMenu(
+              text: "Log Out",
+              icon: "assets/Log_out.svg",
+              press: () {logout(context);},
+            ),
+            Divider(),
+          ],
+        ),
       ),
     );
   }

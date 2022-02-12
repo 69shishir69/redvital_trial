@@ -26,6 +26,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   final firstNameEditingController = new TextEditingController();
   final secondNameEditingController = new TextEditingController();
   final phoneNoEditingController = new TextEditingController();
+  final ageEditingController = new TextEditingController();
+  final genderEditingController = new TextEditingController();
   final bloodTypeEditingController = new TextEditingController();
   final emailEditingController = new TextEditingController();
   final passwordEditingController = new TextEditingController();
@@ -94,6 +96,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           if (value!.isEmpty) {
             return ("Phone no cannot be empty");
           }
+          if (!RegExp("( *?[0-9] *?){10}")
+              .hasMatch(value)) {
+            return ("Please Enter a valid number");
+          }
           return null;
         },
         onSaved: (value) {
@@ -104,6 +110,54 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           prefixIcon: Icon(Icons.account_circle),
           contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
           hintText: "Phone Number",
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
+        ));
+
+    // gender
+    final ageField = TextFormField(
+        autofocus: false,
+        controller: ageEditingController,
+        keyboardType: TextInputType.name,
+        validator: (value) {
+          if (value!.isEmpty) {
+            return ("Age cannot be empty");
+          }
+          return null;
+        },
+        onSaved: (value) {
+          ageEditingController.text = value!;
+        },
+        textInputAction: TextInputAction.next,
+        decoration: InputDecoration(
+          prefixIcon: Icon(Icons.account_circle),
+          contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
+          hintText: "Age",
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
+        ));
+
+    // age
+    final genderField = TextFormField(
+        autofocus: false,
+        controller: genderEditingController,
+        keyboardType: TextInputType.name,
+        validator: (value) {
+          if (value!.isEmpty) {
+            return ("Please enter your gender");
+          }
+          return null;
+        },
+        onSaved: (value) {
+          genderEditingController.text = value!;
+        },
+        textInputAction: TextInputAction.next,
+        decoration: InputDecoration(
+          prefixIcon: Icon(Icons.account_circle),
+          contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
+          hintText: "gender",
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
           ),
@@ -275,6 +329,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     SizedBox(height: 20),
                     phoneNoField,
                     SizedBox(height: 20),
+                    genderField,
+                    SizedBox(height: 20),
+                    ageField,
+                    SizedBox(height: 20),
                     bloodTypeField,
                     SizedBox(height: 20),
                     emailField,
@@ -354,6 +412,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     userModel.secondName = secondNameEditingController.text;
     userModel.phoneNo = phoneNoEditingController.text;
     userModel.bloodType = bloodTypeEditingController.text;
+    userModel.gender = genderEditingController.text;
+    userModel.age = ageEditingController.text;
 
     await firebaseFirestore
         .collection("users")

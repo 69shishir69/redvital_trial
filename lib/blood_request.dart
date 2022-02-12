@@ -268,6 +268,9 @@ class _BloodRequestState extends State<BloodRequest> {
     // print("ok");
   }
   Future<void> requestButton() async {
+    DateTime now = new DateTime.now();
+    DateTime date = new DateTime(now.year, now.month, now.day, now.hour, now.minute, now.second);
+    print(date.toString());
     if (_formKey.currentState!.validate()) {
       // FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
       User? user = _auth.currentUser;
@@ -290,6 +293,8 @@ class _BloodRequestState extends State<BloodRequest> {
       requestBloodModel.donorUid = "None";
       requestBloodModel.donorName = "None";
       requestBloodModel.donorContact = "None";
+      requestBloodModel.requestedDate = date.toString();
+      requestBloodModel.acceptedDate = "Null";
 
 
       try {
@@ -298,6 +303,12 @@ class _BloodRequestState extends State<BloodRequest> {
             .doc(userId)
             .set(requestBloodModel.toMap());
         Fluttertoast.showToast(msg: "Request Sent to all donors");
+        patientNameEditingController.clear();
+        bloodTypeEditingController.clear();
+        contactNoEditingController.clear();
+        neededByEditingController.clear();
+        medicalCenterEditingController.clear();
+
 
          // firebaseUser
          //    .set({

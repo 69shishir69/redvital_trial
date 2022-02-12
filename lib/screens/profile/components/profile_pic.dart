@@ -92,11 +92,12 @@ class _ProfilePicState extends State<ProfilePic> {
           clipBehavior: Clip.none,
           children: [
             CircleAvatar(
+              backgroundColor: Colors.redAccent,
               // if(loggedInUserRetrive)
                   child
                   : loggedInUser.downloadURL == null
                   ? const Center(
-                  child: Text('NoImg'))
+                  child: Text('NoImg', style: TextStyle(color: Colors.white),))
                   : Container(
                       width: 190.0,
                       height: 190.0,

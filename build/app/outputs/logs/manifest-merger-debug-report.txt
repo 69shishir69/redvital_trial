@@ -14,6 +14,7 @@ MERGED from [:google_maps_flutter] D:\Downloads\compressed\email_password_flutte
 MERGED from [:image_picker] D:\Downloads\compressed\email_password_flutter_firebase-main\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-19:12
 MERGED from [:flutter_plugin_android_lifecycle] D:\Downloads\compressed\email_password_flutter_firebase-main\build\flutter_plugin_android_lifecycle\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:fluttertoast] D:\Downloads\compressed\email_password_flutter_firebase-main\build\fluttertoast\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
+MERGED from [:path_provider_android] D:\Downloads\compressed\email_password_flutter_firebase-main\build\path_provider_android\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.firebase:firebase-auth:21.0.1] C:\Users\Acer\.gradle\caches\transforms-2\files-2.1\06e335a88f29e892ea89e02a9cd741a6\jetified-firebase-auth-21.0.1\AndroidManifest.xml:17:1-83:12
 MERGED from [com.google.firebase:firebase-firestore:24.0.1] C:\Users\Acer\.gradle\caches\transforms-2\files-2.1\f9fb8c47375c4decbe5c90c96bb38682\jetified-firebase-firestore-24.0.1\AndroidManifest.xml:2:1-26:12
 MERGED from [com.google.firebase:firebase-storage:20.0.0] C:\Users\Acer\.gradle\caches\transforms-2\files-2.1\abbff134ebf48dbf4fe1cef7f3e360c5\jetified-firebase-storage-20.0.0\AndroidManifest.xml:15:1-39:12
@@ -57,8 +58,8 @@ MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\Acer\.gradle
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\Acer\.gradle\caches\transforms-2\files-2.1\d16e0b646f62ea91ed1bae2e41d92488\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\Acer\.gradle\caches\transforms-2\files-2.1\e9269813307a288ab090f81b77b724ec\documentfile-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.print:print:1.0.0] C:\Users\Acer\.gradle\caches\transforms-2\files-2.1\01d6288f3bc0e0917fc5e32f13b06a3e\print-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [com.google.firebase:protolite-well-known-types:18.0.0] C:\Users\Acer\.gradle\caches\transforms-2\files-2.1\1db0c529fff9e904d8b858651554ffae\jetified-protolite-well-known-types-18.0.0\AndroidManifest.xml:2:1-11:12
 MERGED from [io.grpc:grpc-android:1.41.0] C:\Users\Acer\.gradle\caches\transforms-2\files-2.1\a5175f94a7955273d7c099c637e49eaa\jetified-grpc-android-1.41.0\AndroidManifest.xml:2:1-13:12
+MERGED from [com.google.firebase:protolite-well-known-types:18.0.0] C:\Users\Acer\.gradle\caches\transforms-2\files-2.1\1db0c529fff9e904d8b858651554ffae\jetified-protolite-well-known-types-18.0.0\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.annotation:annotation-experimental:1.1.0] C:\Users\Acer\.gradle\caches\transforms-2\files-2.1\ec51d2b39b5955f0454103e6bc925ad4\jetified-annotation-experimental-1.1.0\AndroidManifest.xml:17:1-24:12
 INJECTED from D:\Downloads\compressed\email_password_flutter_firebase-main\android\app\src\debug\AndroidManifest.xml:1:1-7:12
 INJECTED from D:\Downloads\compressed\email_password_flutter_firebase-main\android\app\src\debug\AndroidManifest.xml:1:1-7:12
@@ -209,6 +210,8 @@ MERGED from [:flutter_plugin_android_lifecycle] D:\Downloads\compressed\email_pa
 MERGED from [:flutter_plugin_android_lifecycle] D:\Downloads\compressed\email_password_flutter_firebase-main\build\flutter_plugin_android_lifecycle\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:fluttertoast] D:\Downloads\compressed\email_password_flutter_firebase-main\build\fluttertoast\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:fluttertoast] D:\Downloads\compressed\email_password_flutter_firebase-main\build\fluttertoast\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:path_provider_android] D:\Downloads\compressed\email_password_flutter_firebase-main\build\path_provider_android\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:path_provider_android] D:\Downloads\compressed\email_password_flutter_firebase-main\build\path_provider_android\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-auth:21.0.1] C:\Users\Acer\.gradle\caches\transforms-2\files-2.1\06e335a88f29e892ea89e02a9cd741a6\jetified-firebase-auth-21.0.1\AndroidManifest.xml:21:5-44
 MERGED from [com.google.firebase:firebase-auth:21.0.1] C:\Users\Acer\.gradle\caches\transforms-2\files-2.1\06e335a88f29e892ea89e02a9cd741a6\jetified-firebase-auth-21.0.1\AndroidManifest.xml:21:5-44
 MERGED from [com.google.firebase:firebase-firestore:24.0.1] C:\Users\Acer\.gradle\caches\transforms-2\files-2.1\f9fb8c47375c4decbe5c90c96bb38682\jetified-firebase-firestore-24.0.1\AndroidManifest.xml:7:5-9:41
@@ -295,10 +298,10 @@ MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\Acer\.gradle\cac
 MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\Acer\.gradle\caches\transforms-2\files-2.1\e9269813307a288ab090f81b77b724ec\documentfile-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.print:print:1.0.0] C:\Users\Acer\.gradle\caches\transforms-2\files-2.1\01d6288f3bc0e0917fc5e32f13b06a3e\print-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.print:print:1.0.0] C:\Users\Acer\.gradle\caches\transforms-2\files-2.1\01d6288f3bc0e0917fc5e32f13b06a3e\print-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [com.google.firebase:protolite-well-known-types:18.0.0] C:\Users\Acer\.gradle\caches\transforms-2\files-2.1\1db0c529fff9e904d8b858651554ffae\jetified-protolite-well-known-types-18.0.0\AndroidManifest.xml:7:5-9:41
-MERGED from [com.google.firebase:protolite-well-known-types:18.0.0] C:\Users\Acer\.gradle\caches\transforms-2\files-2.1\1db0c529fff9e904d8b858651554ffae\jetified-protolite-well-known-types-18.0.0\AndroidManifest.xml:7:5-9:41
 MERGED from [io.grpc:grpc-android:1.41.0] C:\Users\Acer\.gradle\caches\transforms-2\files-2.1\a5175f94a7955273d7c099c637e49eaa\jetified-grpc-android-1.41.0\AndroidManifest.xml:7:5-9:41
 MERGED from [io.grpc:grpc-android:1.41.0] C:\Users\Acer\.gradle\caches\transforms-2\files-2.1\a5175f94a7955273d7c099c637e49eaa\jetified-grpc-android-1.41.0\AndroidManifest.xml:7:5-9:41
+MERGED from [com.google.firebase:protolite-well-known-types:18.0.0] C:\Users\Acer\.gradle\caches\transforms-2\files-2.1\1db0c529fff9e904d8b858651554ffae\jetified-protolite-well-known-types-18.0.0\AndroidManifest.xml:7:5-9:41
+MERGED from [com.google.firebase:protolite-well-known-types:18.0.0] C:\Users\Acer\.gradle\caches\transforms-2\files-2.1\1db0c529fff9e904d8b858651554ffae\jetified-protolite-well-known-types-18.0.0\AndroidManifest.xml:7:5-9:41
 MERGED from [androidx.annotation:annotation-experimental:1.1.0] C:\Users\Acer\.gradle\caches\transforms-2\files-2.1\ec51d2b39b5955f0454103e6bc925ad4\jetified-annotation-experimental-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.annotation:annotation-experimental:1.1.0] C:\Users\Acer\.gradle\caches\transforms-2\files-2.1\ec51d2b39b5955f0454103e6bc925ad4\jetified-annotation-experimental-1.1.0\AndroidManifest.xml:20:5-22:41
 INJECTED from D:\Downloads\compressed\email_password_flutter_firebase-main\android\app\src\debug\AndroidManifest.xml

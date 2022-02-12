@@ -53,6 +53,9 @@ class _RequestContainerState extends State<RequestContainer> {
           minWidth: 50,
           height: 50,
           onPressed: () async {
+            DateTime now = new DateTime.now();
+            DateTime date = new DateTime(now.year, now.month, now.day, now.hour, now.minute, now.second);
+
             final _donationId = DateTime.now().millisecondsSinceEpoch.toString();
             DonorModel donorModel = DonorModel();
             donorModel.donationId = _donationId;
@@ -95,7 +98,8 @@ class _RequestContainerState extends State<RequestContainer> {
               await firebaseFirestore
                   .collection("requesters")
                   .doc(widget.snap['requestId'])
-                  .update({"accept": "True", "donorUid" : "$donorUID", "donorName" : "$donorNAME" , "donorContact" : "$donorCONTACT" });
+                  .update({"accept": "True", "donorUid" : "$donorUID", "donorName" : "$donorNAME",
+                            "donorContact" : "$donorCONTACT", "acceptedDate": date.toString() });
             } else{
               Fluttertoast.showToast(msg: "Request already accepted");
             }
@@ -107,7 +111,8 @@ class _RequestContainerState extends State<RequestContainer> {
                           fontSize: 12, color: Colors.white, fontWeight: FontWeight.bold),)
     ),
     );
-
+    var requestedDate =  widget.snap['requestedDate'];
+    var newRequestedDate = requestedDate.split(" ");
     if(widget.snap['accept'] == "False" && widget.snap['requesterUid'] != user?.uid){
     return Container(
       width: 200,
@@ -155,6 +160,14 @@ class _RequestContainerState extends State<RequestContainer> {
                       ),
                       Text(
                         "Needed Time:   " + widget.snap['neededBy'],
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.black87,
+                        ),
+                      ),
+                      Text(
+                        "Requested Date:   ${newRequestedDate[0]}",
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w600,

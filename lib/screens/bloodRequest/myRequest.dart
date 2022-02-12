@@ -109,7 +109,10 @@ class _MyRequestState extends State<MyRequest> {
     // widget.snap['contactNo']
     // widget.snap['neededBy']
     // );
+    var acceptedDate =  widget.snap['acceptedDate'];
+    var newDate = acceptedDate.split(" ");
 
+    print('${newDate[0]}');
     if(widget.snap['requesterUid'] == user?.uid){
       return Container(
           width: 200,
@@ -174,6 +177,14 @@ class _MyRequestState extends State<MyRequest> {
                         ),
                         Text(
                           widget.snap['accept'] == "True"? ("Donor Contact:   " + widget.snap['donorContact']) : "---------------------Please Wait-------------------",
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.black87,
+                          ),
+                        ),
+                        Text(
+                          widget.snap['accept'] == "True"? ("Accepted Date:   ${newDate[0]}") : "",
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w600,

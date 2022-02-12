@@ -12,12 +12,15 @@ import 'hospitals.dart';
 import 'model/user_model.dart';
 
 class BottomPage extends StatefulWidget {
+  var index;
+
+  BottomPage({Key? key, required this.index}) : super(key: key);
   @override
   _BottomPageState createState() => _BottomPageState();
 }
 
 class _BottomPageState extends State<BottomPage> {
-  int _selectedIndex = 0;
+  // int selectedIndex = widget.index;
 
   static const TextStyle optionStyle =
   TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
@@ -37,7 +40,7 @@ class _BottomPageState extends State<BottomPage> {
 
   void _onItemTapped(int index) {
     setState(() {
-      _selectedIndex = index;
+      widget.index = index;
     });
   }
 
@@ -46,7 +49,7 @@ class _BottomPageState extends State<BottomPage> {
     return Scaffold(
       backgroundColor: Color(0xff0c0f14),
       body: Center(
-        child: _widgetOption.elementAt(_selectedIndex),
+        child: _widgetOption.elementAt(widget.index),
       ),
       bottomNavigationBar: SizedBox(
         height: 70,
@@ -93,7 +96,7 @@ class _BottomPageState extends State<BottomPage> {
               label: "Settings",
             ),
           ],
-          currentIndex: _selectedIndex,
+          currentIndex: widget.index,
           unselectedItemColor: Color(0xff4e5053),
           selectedItemColor: Color(0xffd17842),
           onTap: _onItemTapped,

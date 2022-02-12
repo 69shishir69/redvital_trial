@@ -6,8 +6,10 @@ class UserModel {
   String? phoneNo;
   String? bloodType;
   String? downloadURL;
+  String? gender;
+  String? age;
 
-  UserModel({this.uid, this.email, this.firstName, this.secondName, this.downloadURL, this.phoneNo, this.bloodType});
+  UserModel({this.uid, this.email, this.firstName, this.secondName, this.downloadURL, this.phoneNo, this.bloodType, this.gender, this.age});
 
   // receiving data from server
   factory UserModel.fromMap(map) {
@@ -19,6 +21,8 @@ class UserModel {
       downloadURL: map['downloadURL'],
       phoneNo: map['phoneNo'],
       bloodType: map['bloodType'],
+      gender: map['gender'],
+      age: map['age'],
     );
   }
 
@@ -32,7 +36,9 @@ class UserModel {
       'firstName': firstName,
       'secondName': secondName,
       'phoneNo': phoneNo,
-      'bloodType': bloodType
+      'bloodType': bloodType,
+      'gender': gender,
+      'age': age,
     };
   }
 }
@@ -50,11 +56,14 @@ class RequestBloodModel {
   String? donorUid;
   String? donorName;
   String? donorContact;
+  String? requestedDate;
+  String? acceptedDate;
   // String? message;
 
   RequestBloodModel({this.requesterUid, this.patientName, this.contactNo,
                     this.bloodType, this.neededBy, this.medicalCenter,
-                    this.requestId, this.accept, this.donorUid, this.donorName, this.donorContact});
+                    this.requestId, this.accept, this.donorUid, this.donorName,
+                    this.donorContact, this.requestedDate, this.acceptedDate});
 
   // receiving data from server
   factory RequestBloodModel.fromMap(map) {
@@ -70,6 +79,8 @@ class RequestBloodModel {
       donorUid: map['donorUid'],
       donorName: map['donorName'],
       donorContact: map['donorContact'],
+      requestedDate: map['requestedDate'],
+      acceptedDate: map['acceptedDate'],
       // message: map['message'],
     );
   }
@@ -90,6 +101,8 @@ class RequestBloodModel {
       'donorUid': donorUid,
       'donorName': donorName,
       'donorContact': donorContact,
+      'requestedDate': requestedDate,
+      'acceptedDate': acceptedDate,
       // 'message': message
     };
   }
